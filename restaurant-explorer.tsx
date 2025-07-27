@@ -16,106 +16,106 @@ export default function Component() {
   const restaurants = [
     {
       id: 1,
-      name: "Bella Vista Italian",
-      category: "Italian",
+      name: "ベラビスタ イタリアン",
+      category: "イタリアン",
       rating: 4.8,
-      location: "Downtown",
+      location: "都心部",
       price: "$$$",
       image: "/placeholder.svg?height=200&width=300",
-      cuisine: "Italian",
-      deliveryTime: "25-200 min",
-      description: "Authentic Italian cuisine with fresh pasta and wood-fired pizza",
+      cuisine: "イタリアン",
+      deliveryTime: "25-40分",
+      description: "薪窯ピザと手打ちパスタが自慢の本格イタリア料理",
       featured: true,
     },
     {
       id: 2,
-      name: "Sakura Sushi Bar",
-      category: "Japanese",
+      name: "桜寿司バー",
+      category: "和食",
       rating: 4.9,
-      location: "Midtown",
+      location: "中央区",
       price: "$$$$",
       image: "/placeholder.svg?height=200&width=300",
-      cuisine: "Japanese",
-      deliveryTime: "30-40 min",
-      description: "Premium sushi and sashimi with traditional Japanese ambiance",
+      cuisine: "和食",
+      deliveryTime: "30-40分",
+      description: "伝統的な日本の雰囲気で味わう極上の寿司と刺身",
       featured: true,
     },
     {
       id: 3,
-      name: "Taco Libre",
-      category: "Mexican",
+      name: "タコ・リブレ",
+      category: "メキシカン",
       rating: 4.5,
-      location: "Westside",
+      location: "西区",
       price: "$$",
       image: "/placeholder.svg?height=200&width=300",
-      cuisine: "Mexican",
-      deliveryTime: "20-30 min",
-      description: "Vibrant Mexican street food and craft cocktails",
+      cuisine: "メキシカン",
+      deliveryTime: "20-30分",
+      description: "活気あふれるメキシカンストリートフードとクラフトカクテル",
       featured: false,
     },
     {
       id: 4,
-      name: "The Burger Joint",
-      category: "American",
+      name: "ザ・バーガージョイント",
+      category: "アメリカン",
       rating: 4.3,
-      location: "Downtown",
+      location: "都心部",
       price: "$$",
       image: "/placeholder.svg?height=200&width=300",
-      cuisine: "American",
-      deliveryTime: "15-25 min",
-      description: "Gourmet burgers and craft beer in a casual setting",
+      cuisine: "アメリカン",
+      deliveryTime: "15-25分",
+      description: "カジュアルな雰囲気でグルメバーガーとクラフトビール",
       featured: false,
     },
     {
       id: 5,
-      name: "Spice Garden",
-      category: "Indian",
+      name: "スパイスガーデン",
+      category: "インド料理",
       rating: 4.6,
-      location: "Eastside",
+      location: "東区",
       price: "$$$",
       image: "/placeholder.svg?height=200&width=300",
-      cuisine: "Indian",
-      deliveryTime: "35-45 min",
-      description: "Aromatic Indian curries and tandoor specialties",
+      cuisine: "インド料理",
+      deliveryTime: "35-45分",
+      description: "香り豊かなインドカレーとタンドール料理の専門店",
       featured: false,
     },
     {
       id: 6,
-      name: "Le Petit Bistro",
-      category: "French",
+      name: "ル・プティ・ビストロ",
+      category: "フレンチ",
       rating: 4.7,
-      location: "Uptown",
+      location: "北区",
       price: "$$$$",
       image: "/placeholder.svg?height=200&width=300",
-      cuisine: "French",
-      deliveryTime: "40-50 min",
-      description: "Classic French cuisine in an intimate bistro setting",
+      cuisine: "フレンチ",
+      deliveryTime: "40-50分",
+      description: "親密なビストロの雰囲気で楽しむ本格フランス料理",
       featured: true,
     },
     {
       id: 7,
-      name: "Dragon Palace",
-      category: "Chinese",
+      name: "龍宮殿",
+      category: "中華料理",
       rating: 4.4,
-      location: "Chinatown",
+      location: "中華街",
       price: "$$",
       image: "/placeholder.svg?height=200&width=300",
-      cuisine: "Chinese",
-      deliveryTime: "25-35 min",
-      description: "Traditional Chinese dishes and dim sum",
+      cuisine: "中華料理",
+      deliveryTime: "25-35分",
+      description: "伝統的な中華料理と点心の老舗",
       featured: false,
     },
     {
       id: 8,
-      name: "Mediterranean Breeze",
-      category: "Mediterranean",
+      name: "地中海の風",
+      category: "地中海料理",
       rating: 4.5,
-      location: "Midtown",
+      location: "中央区",
       price: "$$$",
       image: "/placeholder.svg?height=200&width=300",
-      cuisine: "Mediterranean",
-      deliveryTime: "30-40 min",
-      description: "Fresh Mediterranean flavors with healthy options",
+      cuisine: "地中海料理",
+      deliveryTime: "30-40分",
+      description: "新鮮な地中海の味覚とヘルシーなオプション",
       featured: false,
     },
   ]
@@ -155,7 +155,7 @@ export default function Component() {
 
   const filteredRestaurants = useMemo(() => {
     return restaurants.filter((restaurant) => {
-      // Search term filter
+      // 検索キーワードフィルター
       if (
         searchTerm &&
         !restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -165,22 +165,22 @@ export default function Component() {
         return false
       }
 
-      // Category filter
+      // カテゴリフィルター
       if (selectedCategories.length > 0 && !selectedCategories.includes(restaurant.category)) {
         return false
       }
 
-      // Location filter
+      // エリアフィルター
       if (selectedLocations.length > 0 && !selectedLocations.includes(restaurant.location)) {
         return false
       }
 
-      // Rating filter
+      // 評価フィルター
       if (minRating && restaurant.rating < Number.parseFloat(minRating)) {
         return false
       }
 
-      // Price filter
+      // 価格フィルター
       if (priceRange && restaurant.price !== priceRange) {
         return false
       }
@@ -191,7 +191,7 @@ export default function Component() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
+      {/* ヘッダー */}
       <header className="border-b bg-white sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row md:items-center gap-4">
@@ -199,13 +199,13 @@ export default function Component() {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm">R</span>
               </div>
-              <h1 className="text-xl font-bold">RestaurantFinder</h1>
+              <h1 className="text-xl font-bold">レストラン検索</h1>
             </div>
             <div className="flex-1 max-w-md">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
                 <Input
-                  placeholder="Search restaurants, cuisines, or dishes..."
+                  placeholder="レストラン、料理ジャンル、メニューを検索..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10"
@@ -218,21 +218,21 @@ export default function Component() {
 
       <div className="container mx-auto px-4 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Filters Sidebar */}
+          {/* フィルターサイドバー */}
           <div className="lg:col-span-1">
             <Card className="sticky top-24">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-semibold">Filters</h2>
+                  <h2 className="text-lg font-semibold">絞り込み</h2>
                   <Button variant="ghost" size="sm" onClick={clearFilters}>
-                    Clear All
+                    すべてクリア
                   </Button>
                 </div>
 
                 <div className="space-y-6">
-                  {/* Category Filter */}
+                  {/* カテゴリフィルター */}
                   <div>
-                    <Label className="text-sm font-medium mb-3 block">Category</Label>
+                    <Label className="text-sm font-medium mb-3 block">料理ジャンル</Label>
                     <div className="space-y-2">
                       {categories.map((category) => (
                         <div key={category} className="flex items-center space-x-2">
@@ -251,9 +251,9 @@ export default function Component() {
 
                   <Separator />
 
-                  {/* Location Filter */}
+                  {/* エリアフィルター */}
                   <div>
-                    <Label className="text-sm font-medium mb-3 block">Location</Label>
+                    <Label className="text-sm font-medium mb-3 block">エリア</Label>
                     <div className="space-y-2">
                       {locations.map((location) => (
                         <div key={location} className="flex items-center space-x-2">
@@ -272,37 +272,37 @@ export default function Component() {
 
                   <Separator />
 
-                  {/* Rating Filter */}
+                  {/* 評価フィルター */}
                   <div>
-                    <Label className="text-sm font-medium mb-3 block">Minimum Rating</Label>
+                    <Label className="text-sm font-medium mb-3 block">最低評価</Label>
                     <Select value={minRating} onValueChange={setMinRating}>
                       <SelectTrigger>
-                        <SelectValue placeholder="Any rating" />
+                        <SelectValue placeholder="評価を選択" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="any">Any rating</SelectItem>
-                        <SelectItem value="4.0">4.0+ stars</SelectItem>
-                        <SelectItem value="4.5">4.5+ stars</SelectItem>
-                        <SelectItem value="4.8">4.8+ stars</SelectItem>
+                        <SelectItem value="any">すべての評価</SelectItem>
+                        <SelectItem value="4.0">4.0以上</SelectItem>
+                        <SelectItem value="4.5">4.5以上</SelectItem>
+                        <SelectItem value="4.8">4.8以上</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <Separator />
 
-                  {/* Price Filter */}
+                  {/* 価格フィルター */}
                   <div>
-                    <Label className="text-sm font-medium mb-3 block">Price Range</Label>
+                    <Label className="text-sm font-medium mb-3 block">価格帯</Label>
                     <Select value={priceRange} onValueChange={setPriceRange}>
                       <SelectTrigger>
-                        <SelectValue placeholder="Any price" />
+                        <SelectValue placeholder="価格帯を選択" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="any">Any price</SelectItem>
-                        <SelectItem value="$">$ - Budget friendly</SelectItem>
-                        <SelectItem value="$$">$$ - Moderate</SelectItem>
-                        <SelectItem value="$$$">$$$ - Expensive</SelectItem>
-                        <SelectItem value="$$$$">$$$$ - Very expensive</SelectItem>
+                        <SelectItem value="any">すべての価格帯</SelectItem>
+                        <SelectItem value="$">$ - リーズナブル</SelectItem>
+                        <SelectItem value="$$">$$ - 普通</SelectItem>
+                        <SelectItem value="$$$">$$$ - 高級</SelectItem>
+                        <SelectItem value="$$$$">$$$$ - 最高級</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -311,14 +311,12 @@ export default function Component() {
             </Card>
           </div>
 
-          {/* Restaurant Grid */}
+          {/* レストラン一覧 */}
           <div className="lg:col-span-3">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold">Restaurants</h2>
-                <p className="text-muted-foreground">
-                  {filteredRestaurants.length} restaurant{filteredRestaurants.length !== 1 ? "s" : ""} found
-                </p>
+                <h2 className="text-2xl font-bold">レストラン一覧</h2>
+                <p className="text-muted-foreground">{filteredRestaurants.length}件のレストランが見つかりました</p>
               </div>
             </div>
 
@@ -333,7 +331,7 @@ export default function Component() {
                       height={200}
                       className="w-full h-48 object-cover"
                     />
-                    {restaurant.featured && <Badge className="absolute top-2 left-2 bg-primary">Featured</Badge>}
+                    {restaurant.featured && <Badge className="absolute top-2 left-2 bg-primary">おすすめ</Badge>}
                   </div>
                   <CardContent className="p-4">
                     <div className="space-y-2">
@@ -366,7 +364,7 @@ export default function Component() {
                         <Badge variant="secondary" className="text-xs">
                           {restaurant.category}
                         </Badge>
-                        <Button size="sm">View Details</Button>
+                        <Button size="sm">詳細を見る</Button>
                       </div>
                     </div>
                   </CardContent>
@@ -379,11 +377,9 @@ export default function Component() {
                 <div className="w-16 h-16 mx-auto mb-4 bg-muted rounded-full flex items-center justify-center">
                   <Search className="h-8 w-8 text-muted-foreground" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">No restaurants found</h3>
-                <p className="text-muted-foreground mb-4">
-                  Try adjusting your search criteria or clearing some filters
-                </p>
-                <Button onClick={clearFilters}>Clear All Filters</Button>
+                <h3 className="text-lg font-semibold mb-2">レストランが見つかりませんでした</h3>
+                <p className="text-muted-foreground mb-4">検索条件を調整するか、フィルターをクリアしてみてください</p>
+                <Button onClick={clearFilters}>すべてのフィルターをクリア</Button>
               </div>
             )}
           </div>
