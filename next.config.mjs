@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',           // 追加（静的エクスポート）
   eslint: {
     ignoreDuringBuilds: true,
   },
