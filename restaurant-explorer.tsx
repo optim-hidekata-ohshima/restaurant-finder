@@ -23,7 +23,7 @@ export default function Component() {
       price: "$$$",
       image: "/placeholder.svg?height=200&width=300",
       cuisine: "Italian",
-      deliveryTime: "25-60 min",
+      deliveryTime: "25-200 min",
       description: "Authentic Italian cuisine with fresh pasta and wood-fired pizza",
       featured: true,
     },
